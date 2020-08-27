@@ -1,0 +1,162 @@
+/*
+Theme Name: Brucato Theme
+Author: Isabella-Sofia Brucato & Christopher Cordine
+
+*/
+// Google Fonts
+
+$background: black;
+$primary: orange;
+// $primary: #cb6f34;
+// $secondary: #222;
+$secondary: #222;
+
+$hilightColor: #fff;
+
+// Font Awesome CDN
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css";
+
+$green: green;
+
+// .page-id-18 header {
+// 	display: none;
+// }
+
+nav {
+	.brucato-nav-button {
+		float: right;
+		background-color: $green;
+		width: 2em;
+		height: 2em;
+	}
+	.brucato-sidebar {
+		padding: 1em;
+		background-color: $green;
+		display: inline-block;
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		right: -1000px;
+		z-index: 999;
+		transition: right 500ms ease-in-out;
+		& > ul {
+			li {
+				list-style: none;
+			}
+			& > li {
+				& > a {
+					color: white;
+				}
+			}
+		}
+		.sub-menu a,
+		.sub-menu li {
+			color: black !important;
+		}
+		&.open {
+			right: 0;
+		}
+	}
+}
+
+section.main {
+	padding: 3em;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+	min-height: 100vh;
+	box-sizing: border-box;
+	color: $green;
+	p {
+		color: black;
+	}
+	a {
+		color: green;
+		text-decoration: none;
+	}
+	.nav-menu {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		text-align: center;
+
+		.brucato-navigation {
+			.nav-button {
+				padding: 2em;
+			}
+			.view {
+				margin-top: 0;
+				transition: margin 500ms ease-in-out;
+			}
+			&.closed {
+				.view {
+					margin-top: -1000px;
+				}
+			}
+		}
+	}
+}
+
+section.brucato-post {
+	padding: 1em;
+	.brucato-category-list {
+		color: $green;
+		ol,
+		li {
+			display: inline;
+		}
+		li {
+			& > a {
+				text-decoration: none;
+				color: $green;
+				&:active {
+					color: black;
+				}
+			}
+		}
+	}
+	.brucato-heading {
+		text-align: center;
+	}
+	.featured-image {
+		width: 100%;
+		height: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.brucato-carousel {
+		width: 100%;
+		height: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.brucato-pdf-viewer {
+		width: 100%;
+		height: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.brucato-post-body {
+		width: 100%;
+		height: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.brucato-post-navigation {
+		padding: 2em;
+		height: auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		a {
+			color: $green;
+			text-decoration: none;
+		}
+	}
+}
