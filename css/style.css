@@ -4,15 +4,45 @@ Author: Isabella-Sofia Brucato & Christopher Cordine
 
 */
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css";
+@import "https://use.typekit.net/qch2ibh.css";
+@font-face {
+  font-family: "Playfair Display";
+  src: local("Playfair Display Regular"), local("PlayfairDisplay-Regular"), url("https://fonts.gstatic.com/s/playfairdisplay/v18/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgEM86xQ.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+.hamburger {
+  box-sizing: border-box;
+  width: 3em;
+  height: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 4px solid #e1f391;
+  border-radius: 5px;
+  padding: 4px;
+  cursor: pointer;
+}
+.hamburger .bar {
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+  display: inline;
+  box-sizing: border-box;
+  background-color: #e1f391;
+  width: 100%;
+  min-height: 4px;
+  border-radius: 5px;
+}
+
 nav .brucato-nav-button {
   float: right;
-  background-color: green;
-  width: 2em;
-  height: 2em;
 }
 nav .brucato-sidebar {
   padding: 1em;
-  background-color: green;
+  background-color: #e1f391;
   display: inline-block;
   position: fixed;
   top: 0;
@@ -35,6 +65,15 @@ nav .brucato-sidebar.open {
   right: 0;
 }
 
+body {
+  padding: 1em;
+}
+
+h1 {
+  font-family: "Playfair Display";
+  font-style: italic;
+}
+
 section.main {
   padding: 3em;
   display: flex;
@@ -43,13 +82,16 @@ section.main {
   flex-direction: column;
   min-height: 100vh;
   box-sizing: border-box;
-  color: green;
+  color: #e1f391;
+}
+section.main h1 {
+  font-size: 5em;
 }
 section.main p {
   color: black;
 }
 section.main a {
-  color: green;
+  color: #e1f391;
   text-decoration: none;
 }
 section.main .nav-menu {
@@ -57,9 +99,11 @@ section.main .nav-menu {
   position: relative;
   flex-direction: column;
   text-align: center;
+  font-size: 1.5em;
 }
-section.main .nav-menu .brucato-navigation .nav-button {
+section.main .nav-menu .nav-button {
   padding: 2em;
+  cursor: pointer;
 }
 section.main .nav-menu .brucato-navigation .view {
   margin-top: 0;
@@ -73,7 +117,7 @@ section.brucato-post {
   padding: 1em;
 }
 section.brucato-post .brucato-category-list {
-  color: green;
+  color: #e1f391;
 }
 section.brucato-post .brucato-category-list ol,
 section.brucato-post .brucato-category-list li {
@@ -81,7 +125,7 @@ section.brucato-post .brucato-category-list li {
 }
 section.brucato-post .brucato-category-list li > a {
   text-decoration: none;
-  color: green;
+  color: #e1f391;
 }
 section.brucato-post .brucato-category-list li > a:active {
   color: black;
@@ -126,7 +170,7 @@ section.brucato-post .brucato-post-navigation {
   align-items: center;
 }
 section.brucato-post .brucato-post-navigation a {
-  color: green;
+  color: #e1f391;
   text-decoration: none;
 }
 

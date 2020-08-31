@@ -195,7 +195,6 @@ let handleMainNavigation = () => {
 	let button = document.querySelector(".nav-button");
 	if (button) {
 		button.addEventListener("click", () => {
-			console.log("click");
 			let navigation = document.querySelector(".brucato-navigation");
 			let closed =
 				[...navigation.classList].indexOf("closed") === -1 ? false : true;
@@ -216,7 +215,7 @@ let handleHamburgerNavigation = () => {
 			sidebar.classList.remove("open");
 		};
 		document.addEventListener("click", e => {
-			if (e.target.className != "brucato-nav-button") {
+			if (e.target != navButton) {
 				let sidebarOpened =
 					[...sidebar.classList].indexOf("open") > -1 ? true : false;
 				if (sidebarOpened) {

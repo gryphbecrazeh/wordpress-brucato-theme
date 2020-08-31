@@ -28,7 +28,11 @@
 
     <header>
 <nav>
-  <div class="brucato-nav-button"></div>
+<div class="brucato-nav-button hamburger">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
   <div class="brucato-sidebar">
         <?php
                 wp_nav_menu(
