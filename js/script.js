@@ -240,7 +240,6 @@ let handleLinkStyles = () => {
 	if (links.length > 0) {
 		links.forEach(link => {
 			let target = link.getAttribute("href");
-			console.log(window.location.href, target);
 			if (target && target == window.location.href) {
 				link.classList.add("current");
 			}
@@ -253,9 +252,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	// mouseHoverElement(80, "#introduction");
 	// idleScroller(1200, ".gh_repos_list", 2);
 	// }
-	handleLinkStyles();
 	handleMainNavigation();
 	handleHamburgerNavigation();
+	handleLinkStyles();
+
 	// styleHeadingTags();
 	// customSlidingText(3000);
 	// techHighlighter(1000);
