@@ -253,9 +253,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	// mouseHoverElement(80, "#introduction");
 	// idleScroller(1200, ".gh_repos_list", 2);
 	// }
+	handleLinkStyles();
 	handleMainNavigation();
 	handleHamburgerNavigation();
-	handleLinkStyles();
 	// styleHeadingTags();
 	// customSlidingText(3000);
 	// techHighlighter(1000);
