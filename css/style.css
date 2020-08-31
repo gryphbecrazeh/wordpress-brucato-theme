@@ -37,8 +37,12 @@ Author: Isabella-Sofia Brucato & Christopher Cordine
   border-radius: 5px;
 }
 
+nav {
+  position: relative;
+}
 nav .brucato-nav-button {
-  float: right;
+  position: absolute;
+  right: 0;
 }
 nav .brucato-sidebar {
   padding: 1em;
@@ -83,6 +87,7 @@ section.main {
   min-height: 100vh;
   box-sizing: border-box;
   color: #e1f391;
+  text-align: center;
 }
 section.main h1 {
   font-size: 5em;

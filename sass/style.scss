@@ -53,8 +53,11 @@ $bar: 4px;
 // }
 
 nav {
+	position: relative;
 	.brucato-nav-button {
-		float: right;
+		// float: right;
+		position: absolute;
+		right: 0;
 	}
 	.brucato-sidebar {
 		padding: 1em;
@@ -104,6 +107,7 @@ section.main {
 	min-height: 100vh;
 	box-sizing: border-box;
 	color: $green;
+	text-align: center;
 	h1 {
 		font-size: 5em;
 	}
