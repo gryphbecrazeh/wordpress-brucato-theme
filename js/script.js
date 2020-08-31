@@ -234,6 +234,19 @@ let handleHamburgerNavigation = () => {
 		});
 	}
 };
+let handleLinkStyles = () => {
+	let container = document.querySelector(".brucato-category-list");
+	let links = [...container.querySelectorAll("a")];
+	if (links.length > 0) {
+		links.forEach(link => {
+			let target = link.getAttribute("href");
+			console.log(window.location.href, target);
+			if (target && target == window.location.href) {
+				link.classList.add("current");
+			}
+		});
+	}
+};
 // Execute Scripts
 document.addEventListener("DOMContentLoaded", () => {
 	// if (window.innerWidth > 800) {
@@ -242,6 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// }
 	handleMainNavigation();
 	handleHamburgerNavigation();
+	handleLinkStyles();
 	// styleHeadingTags();
 	// customSlidingText(3000);
 	// techHighlighter(1000);
