@@ -1,7 +1,7 @@
 <?php
 
-// ob_clean();
-// ob_start();
+ob_clean();
+ob_start();
 
 global $post;
 //  echo do_shortcode('[sp_wpcarousel id="73"]'); 
@@ -71,11 +71,7 @@ $current_post_index = find_index_from_array('ID', $postId, $post_list);
 $previous_post = $post_list[$current_post_index - 1];
 $next_post = $post_list[$current_post_index + 1];
 
-// print_r($previous_post);
-// echo '<br/><br/>';
-// print_r($next_post);
-// echo $next_post->guid;
-// die();
+
 ?>
 
 <?php get_header(); ?>
@@ -98,8 +94,6 @@ foreach ($post_list as $index=>$post) : setup_postdata($post);
         <div class="brucato-title">
             <h1>
                 <?php
-//   var_export($active_post);
-//   die();
 echo $active_post->post_title;?>
             </h1>
         </div>
