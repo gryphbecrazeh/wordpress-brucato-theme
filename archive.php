@@ -1,5 +1,4 @@
 <?php
-// get_header();
 
 ob_clean();
 ob_start();
@@ -11,6 +10,8 @@ $category_post_list = get_posts($args);
 $post_link = get_permalink($category_post_list[0]);
 wp_redirect($post_link);
 exit();
+
+get_header();
 ?>
 <section class="title">
     <h1><?php single_cat_title(); ?></h1>

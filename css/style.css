@@ -132,11 +132,11 @@ section.brucato-post .brucato-category-list li {
 section.brucato-post .brucato-category-list li > a {
   text-decoration: none;
 }
+section.brucato-post .brucato-category-list li > a:link {
+  color: #e1f391 !important;
+}
 section.brucato-post .brucato-category-list li > a.current {
   color: black !important;
-}
-section.brucato-post .brucato-category-list li > a:link {
-  color: #e1f391;
 }
 section.brucato-post .brucato-heading {
   text-align: center;
