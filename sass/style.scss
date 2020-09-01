@@ -154,11 +154,11 @@ section.brucato-post {
 		li {
 			& > a {
 				text-decoration: none;
+				&:link {
+					color: $green !important;
+				}
 				&.current {
 					color: black !important;
-				}
-				&:link {
-					color: $green;
 				}
 			}
 		}
