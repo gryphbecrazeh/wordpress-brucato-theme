@@ -199,8 +199,10 @@ let handleMainNavigation = () => {
 			let closed =
 				[...navigation.classList].indexOf("closed") === -1 ? false : true;
 			if (closed) {
+				button.classList.add("open");
 				return navigation.classList.remove("closed");
 			} else {
+				button.classList.remove("open");
 				return navigation.classList.add("closed");
 			}
 		});

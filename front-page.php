@@ -23,18 +23,21 @@ $sub_description = get_field('sub_description');
 
 ?>
 <section class="main">
-<div class="nav-menu">
-<div class="nav-button">+</div>
-<div class="brucato-navigation closed">
-<div class="view">
-<p><?php echo $main_description; ?></p>
-<p>
-<?php
+    <div class="nav-menu">
+        <div class="nav-button">
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="brucato-navigation closed">
+            <div class="view">
+                <p><?php echo $main_description; ?></p>
+                <p>
+                    <?php
 foreach( $featured_categories as $key=>$value ) {
 $category = get_category($value);
 if($category) {
 ?>
-<a href="/<?php echo $category->slug ?>"><?php 
+                    <a href="/<?php echo $category->slug ?>"><?php 
 echo $category->name;
 if($key < $featured_categories_length) {
     echo ",";
@@ -42,17 +45,17 @@ if($key < $featured_categories_length) {
     echo ".";
 }
  ?></a>
-<?php
+                    <?php
 }
 
 }
 ?>
-</p>
-<p><?php echo $sub_description; ?></p>
-</div>
-</div>
-</div>
-<h1 class="name">Isabella-Sofia Maria</h1>
+                </p>
+                <p><?php echo $sub_description; ?></p>
+            </div>
+        </div>
+    </div>
+    <h1 class="name">Isabella-Sofia Maria</h1>
 </section>
 
 <?php get_footer(); ?>
