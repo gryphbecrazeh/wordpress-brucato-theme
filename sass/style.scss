@@ -87,7 +87,7 @@ nav {
 			}
 			& > li {
 				& > a {
-					color: white;
+					color: white !important;
 				}
 			}
 		}
@@ -100,6 +100,15 @@ nav {
 		}
 	}
 }
+
+section {
+	a,
+	a:visited,
+	a:active {
+		color: $green !important;
+	}
+}
+
 body {
 	padding: 1em;
 	font-family: questa-sans, sans-serif !important;

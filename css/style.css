@@ -66,7 +66,7 @@ nav .brucato-sidebar > ul li {
   list-style: none;
 }
 nav .brucato-sidebar > ul > li > a {
-  color: white;
+  color: white !important;
 }
 nav .brucato-sidebar .sub-menu a,
 nav .brucato-sidebar .sub-menu li {
@@ -74,6 +74,12 @@ nav .brucato-sidebar .sub-menu li {
 }
 nav .brucato-sidebar.open {
   right: 0;
+}
+
+section a,
+section a:visited,
+section a:active {
+  color: #e1f391 !important;
 }
 
 body {
