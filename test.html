@@ -1,0 +1,89 @@
+<div id="dynamic_form">
+	<div id="field_wrap">
+		<!-- 
+            Master Row
+         -->
+		<div style="display: none" id="master-row">
+			<div class="field_row">
+				<div class="field_left">
+					<div class="form_field">
+						<label>Image URL</label>
+						<input
+							type="text"
+							class="meta_image_url"
+							name="gallery[image_url][]"
+						/>
+					</div>
+				</div>
+				<div class="field_right image_wrap"></div>
+				<div class="field_right">
+					<input
+						type="button"
+						value="Choose File"
+						class="button"
+						onclick="add_image(this)"
+					/>
+					<br />
+					<input
+						type="button"
+						value="Remove"
+						class="button"
+						onclick="remove_field(this)"
+					/>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<!--  -->
+		<!-- End Master Row -->
+		<!--  -->
+		<!-- 
+            Begin Row Loop
+         -->
+		<div class="field_row">
+			<div class="field_left">
+				<div class="form_field">
+					<input
+						type="text"
+						name="gallery[image_url][]"
+						id=""
+						class="meta_image_url"
+						value="<?php esc_html_e( $gallery_data['image_url'][$index] ); ?>"
+					/>
+				</div>
+			</div>
+			<div class="field_right image_wrap">
+				<img src="" height="48" width="48" />
+			</div>
+			<div class="field_right">
+				<input
+					type="button"
+					value="Choose File"
+					class="button"
+					onclick="add_image(this)"
+				/>
+				<br />
+				<input
+					type="button"
+					value="Remove"
+					class="button"
+					onclick="remove_field(this)"
+				/>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<!-- 
+            End Row Loop
+         -->
+		<!--Begin Add Field Row -->
+		<div id="add_field_row">
+			<input
+				type="button"
+				value="Add Field"
+				class="button"
+				onclick="add_field_row()"
+			/>
+		</div>
+		<!-- End Add Field Row -->
+	</div>
+</div>
