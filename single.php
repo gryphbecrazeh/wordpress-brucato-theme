@@ -14,9 +14,7 @@ $pdf_viewer = get_field("pdf_viewer");
 $additional_image_carousel = get_field("additional_image_carousel");
 $postId = get_the_ID();
 $category = get_the_category($postId)[0];
-
-
-
+$carousel_images = get_field( "custom_image_data" );
 function reconstruct_array ($old_array) {
     $new_array = [];
     $index = 0;
@@ -104,8 +102,23 @@ echo $active_post->post_title;?>
     <div class="featured-image">
         <?php echo $post_featured_image; ?>
     </div>
-    <div class="brucato-carousel">
-        <?php echo $image_carousel; ?>
+    <div class="brucato-carousel carousel-container">
+        <?php 
+        if(count($carousel_images) > 0) {
+            ?>
+
+        <?php 
+                foreach($carousel_images as $carousel_image) {
+                    ?>
+        <div class="slide"><img src="<?php echo $carousel_image["src"]?>" alt="" srcset=""></div>
+        <?php
+                }
+            ?>
+
+        <?php
+        }
+    ?>
+        <?php //echo $image_carousel; ?>
     </div>
     <div class="brucato-pdf-viewer">
         <?php echo $pdf_viewer; ?>

@@ -248,6 +248,56 @@ let handleLinkStyles = () => {
 		});
 	}
 };
+
+let handleCarousel = () => {
+	const carousels = [...document.querySelectorAll(".carousel-container")];
+
+	carousels.forEach(carousel => {
+		let slides = [...carousel.querySelectorAll(".slide")];
+		const center = Math.floor(slides.length / 2);
+		const cap = slides.length - 1;
+		// Initialize the center
+		slides[center].classList.add("center");
+
+		let slideLeft = slides => {
+			slides[0].classList.add("transition");
+			slides[center].classList.remove("center");
+			carousel.removeChild(slides[0]);
+			slides[0].classList.remove("transition");
+			carousel.appendChild(slides[0]);
+			slides = [...carousel.querySelectorAll(".slide")];
+			slides[center].classList.add("center");
+			addClickEvent(slides);
+		};
+		let slideRight = slides => {
+			slides[cap].classList.add("transition");
+			slides[center].classList.remove("center");
+			carousel.removeChild(slides[cap]);
+			slides[cap].classList.remove("transition");
+			carousel.prepend(slides[cap]);
+			slides = [...carousel.querySelectorAll(".slide")];
+			slides[center].classList.add("center");
+			addClickEvent(slides);
+		};
+
+		// add onClick
+		let addClickEvent = slides => {
+			//   Slide Left
+			for (let i = 0; i < center; i++) {
+				slides[i].addEventListener(
+					"click",
+					() => (slides = slideRight(slides))
+				);
+			}
+			//   Slide Right
+			for (let i = center + 1; i <= cap; i++) {
+				slides[i].addEventListener("click", () => (slides = slideLeft(slides)));
+			}
+		};
+		addClickEvent(slides);
+	});
+};
+
 // Execute Scripts
 document.addEventListener("DOMContentLoaded", () => {
 	// if (window.innerWidth > 800) {
@@ -257,6 +307,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	handleMainNavigation();
 	handleHamburgerNavigation();
 	handleLinkStyles();
+	handleCarousel();
 
 	// styleHeadingTags();
 	// customSlidingText(3000);

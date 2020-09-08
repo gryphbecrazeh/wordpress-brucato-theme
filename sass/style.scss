@@ -259,3 +259,35 @@ section.brucato-post {
 		}
 	}
 }
+
+// Image Carousel
+.carousel-container {
+	width: 100%;
+	justify-content: space-evenly;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	gap: 2em;
+	.slide {
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 200px;
+		height: 200px;
+		transition: all 500ms ease-in-out;
+		img {
+			height: auto;
+			width: 100%;
+		}
+		&.center {
+			transition: all 200ms ease-in-out;
+			height: 250px;
+			width: 250px;
+		}
+		&.transition {
+			transition: all 200ms ease-in-out;
+			width: 0px;
+		}
+	}
+}

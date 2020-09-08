@@ -224,4 +224,35 @@ section.brucato-post .brucato-post-navigation a {
   text-decoration: none;
 }
 
+.carousel-container {
+  width: 100%;
+  justify-content: space-evenly;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+.carousel-container .slide {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  transition: all 500ms ease-in-out;
+}
+.carousel-container .slide img {
+  height: auto;
+  width: 100%;
+}
+.carousel-container .slide.center {
+  transition: all 200ms ease-in-out;
+  height: 250px;
+  width: 250px;
+}
+.carousel-container .slide.transition {
+  transition: all 200ms ease-in-out;
+  width: 0px;
+}
+
 /*# sourceMappingURL=style.css.map */
