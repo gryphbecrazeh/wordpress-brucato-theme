@@ -272,6 +272,7 @@ section.brucato-post .brucato-post-navigation a {
 .brucato-cascading-container .tile .image-container img {
   max-width: 20vw !important;
   height: auto;
+  cursor: pointer;
 }
 .brucato-cascading-container .tile.right img {
   float: right;
@@ -328,6 +329,11 @@ section.brucato-post .brucato-post-navigation a {
   to {
     margin-right: inherit;
   }
+}
+footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

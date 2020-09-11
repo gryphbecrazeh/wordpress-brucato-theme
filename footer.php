@@ -4,9 +4,10 @@
 ?>
 
 <footer style="background-color:<?php echo $footer_color ?>; color:<?php echo $footer_font_color ?>;">
-
-    <div class="container">
+    <div class="footer-heading">
         <h1>Isabella-Sofia Maria</h1>
+    </div>
+    <div class="container">
 
         <?php
         wp_nav_menu(
