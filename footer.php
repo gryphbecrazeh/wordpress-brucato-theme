@@ -5,7 +5,7 @@
 
 <footer style="background-color:<?php echo $footer_color ?>; color:<?php echo $footer_font_color ?>;">
     <?php
-if($footer_color) {
+if( get_field("footer_color")) {
     ?>
 
     <div class="footer-heading">
