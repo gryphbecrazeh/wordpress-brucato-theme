@@ -4,7 +4,10 @@
 ?>
 
 <footer style="background-color:<?php echo $footer_color ?>; color:<?php echo $footer_font_color ?>;">
-    <div class="contaienr">
+
+    <div class="container">
+        <h1>Isabella-Sofia Maria</h1>
+
         <?php
         wp_nav_menu(
             array(
@@ -19,4 +22,5 @@
 </footer>
 
 </body>
+
 </html>
