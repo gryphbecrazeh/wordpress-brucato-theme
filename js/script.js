@@ -298,6 +298,48 @@ let handleCarousel = () => {
 	});
 };
 
+let handleCollage = () => {
+	let container = document.querySelector(".brucato-cascading-container");
+	if (container) {
+		var directions = ["top", "bottom", "left", "right"];
+
+		let shadowbox = container.querySelector("#brucato-shadowbox-display");
+		let shadowboxImage = document.createElement("img");
+		shadowboxImage.classList.add("shadowbox-image");
+
+		let tiles = [...container.querySelectorAll(".tile")];
+		let images = [...container.querySelectorAll("img")];
+
+		let getRandomPosition = () => {
+			return Math.floor(Math.random() * Math.floor(directions.length));
+		};
+
+		let closeShadowbox = () => {
+			shadowbox.removeChild(shadowboxImage);
+			shadowbox.classList.remove("open");
+		};
+		let openShadowbox = e => {
+			let image = e.target.getAttribute("src");
+			let shadowboxOpened =
+				[...shadowbox.classList].indexOf("open") > -1 ? true : false;
+			if (image && !shadowboxOpened) {
+				shadowboxImage.setAttribute("src", image);
+				shadowbox.appendChild(shadowboxImage);
+				shadowbox.classList.add("open");
+				shadowbox.addEventListener("click", closeShadowbox);
+			}
+		};
+		tiles.forEach(tile => {
+			tile.classList.add(directions[getRandomPosition()]);
+			tile.classList.add(directions[getRandomPosition()]);
+		});
+
+		images.forEach(image => {
+			image.addEventListener("click", openShadowbox);
+		});
+	}
+};
+
 // Execute Scripts
 document.addEventListener("DOMContentLoaded", () => {
 	// if (window.innerWidth > 800) {
@@ -308,6 +350,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	handleHamburgerNavigation();
 	handleLinkStyles();
 	handleCarousel();
+	handleCollage();
 
 	// styleHeadingTags();
 	// customSlidingText(3000);

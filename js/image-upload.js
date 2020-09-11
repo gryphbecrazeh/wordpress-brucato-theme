@@ -1,10 +1,11 @@
 window.addEventListener("DOMContentLoaded", () => {
-	let addButton = document.getElementById("image-upload-button");
-	let deleteButton = document.querySelector("#image-delete-button");
-	let hidden = document.querySelector("#image-hidden-field");
-	let wrappers = document.querySelectorAll(".multi-image-uploader-wrapper");
+	let wrappers = [...document.querySelectorAll(".metabox-wrapper")];
 	// Reuse code
 	wrappers.forEach(wrapper => {
+		let addButton = wrapper.querySelector("input#image-upload-button");
+		let deleteButton = wrapper.querySelector("input#image-delete-button");
+		let hidden = wrapper.querySelector("input#image-hidden-field");
+
 		let renderImages = array => {
 			array.forEach(item => {
 				let attachment = item.toJSON();
@@ -21,30 +22,46 @@ window.addEventListener("DOMContentLoaded", () => {
 			let newImages = [...wrapper.querySelectorAll("img")];
 		};
 
-		if (customUploads) {
-			let { imageData } = customUploads;
-			if (imageData) {
-				imageData.forEach(item => {
-					let image = document.createElement("img");
-					image.setAttribute("src", item.src);
-					image.setAttribute(
-						"style",
-						"width:100%; height:auto; max-width:15em;"
+		let getImageData = customUploads => {
+			if (customUploads) {
+				let { imageData } = customUploads;
+				if (imageData) {
+					imageData.forEach(item => {
+						let image = document.createElement("img");
+						image.setAttribute("src", item.src);
+						image.setAttribute(
+							"style",
+							"width:100%; height:auto; max-width:15em;"
+						);
+						wrapper.appendChild(image);
+					});
+					hidden.setAttribute(
+						"value",
+						JSON.stringify([
+							...imageData.map(attachment => {
+								return {
+									id: attachment.id,
+									url: attachment.src
+								};
+							})
+						])
 					);
-					wrapper.appendChild(image);
-				});
-				hidden.setAttribute(
-					"value",
-					JSON.stringify([
-						...imageData.map(attachment => {
-							return {
-								id: attachment.id,
-								url: attachment.src
-							};
-						})
-					])
-				);
+				}
 			}
+		};
+		// Carousel
+		if (customUploads1 && wrapper.getAttribute("name") == "carousel_1") {
+			getImageData(customUploads1);
+		}
+		if (customUploads2 && wrapper.getAttribute("name") == "carousel_2") {
+			getImageData(customUploads2);
+		}
+		if (customUploads3 && wrapper.getAttribute("name") == "carousel_3") {
+			getImageData(customUploads3);
+		}
+		// Collage
+		if (customUploads4 && wrapper.getAttribute("name") == "collage_1") {
+			getImageData(customUploads4);
 		}
 
 		let customUploader = wp.media({

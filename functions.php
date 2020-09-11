@@ -1,6 +1,6 @@
 <?php
 include_once(__DIR__ . '/includes/register_assets.php');
-
+include_once(__DIR__ . '/includes/metaboxes.php');
 add_theme_support('post-thumbnails');
 add_theme_support('menus');
 
@@ -79,89 +79,3 @@ function filter_bootstrap_nav_menu_submenu_css_class($classes, $args, $depth)
     return $classes;
 }
 // add_filter('nav_menu_submenu_css_class', 'filter_bootstrap_nav_menu_submenu_css_class', 10, 3);
-
-
-
-/**
- * 
- * Carousel Image Uploader
- * 
- */
-
-
-/**
- * 
- * Custom Image Uploader Functions
- * 
- */
-
- function register_metaboxes (  )
- {
-     add_meta_box( 'image_metabox', 'Carousel Images', 'image_uploader_callback' );
- }
- function register_admin_script (  )
- {
-    wp_enqueue_script( 'wp_img_upload',  get_template_directory_uri(__DIR__)  . '/js/image-upload.js', array('jquery', 'media-upload') );
-    wp_localize_script( 'wp_img_upload', 'customUploads', array( 'imageData' => get_post_meta( get_the_ID(), 'custom_image_data', true ) ) );
- }
-function image_uploader_callback (  )
-{
-    wp_nonce_field( basename(__FILE__), 'custom_image_nonce');
-    
-        ?>
-<div id="metabox-wrapper">
-    <div class="multi-image-uploader-wrapper">
-        <input type="hidden" value="" id="image-hidden-field" name="custom_image_data" />
-    </div>
-    <div class="button-wrapper">
-        <input type="button" value="Add Image" id="image-upload-button" class="button" />
-        <input type="button" value="Remove Image" id="image-delete-button" class="button" />
-    </div>
-</div>
-
-<?php
-}
-/**
- * 
- * Save Custom Images
- * 
- */
-function save_custom_image ( $post_id )
-{
-    $is_autosave = wp_is_post_autosave( $post_id );
-    $is_revision = wp_is_post_revision( $post_id );
-    $is_valid_nonce = ( isset( $_POST['custom_image_nonce'] ) && wp_verify_nonce( $_POST['custom_image_nonce'] ) );
-
-    if( $is_autosave || $is_revision || $is_valid_nonce ) {
-        return;
-    }
-
-    if( isset( $_POST['custom_image_data'] ) ) {
-        $image_data_array = [];
-
-        $image_data = json_decode( stripslashes( $_POST['custom_image_data'] ) );
-
-        foreach($image_data as $index=>$image) {
-        if( is_object( $image_data[$index] ) ) {
-            array_push( $image_data_array, array( 'id' => intval( $image_data[$index]->id ), 'src' => esc_url_raw( $image_data[$index]->url ) ));
-        } else {
-            $image_data = [];
-        }
-
-        }
-        update_post_meta( $post_id, 'custom_image_data', $image_data_array );
-    }
-
-}
-
- /**
-  * 
-  * Actions
-  *
-  */
-
- add_action( 'add_meta_boxes', 'register_metaboxes' ); 
- add_action( 'admin_enqueue_scripts', 'register_admin_script' );
- add_action( 'save_post', 'save_custom_image' );
-
- 

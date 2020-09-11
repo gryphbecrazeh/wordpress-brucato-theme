@@ -14,7 +14,12 @@ $pdf_viewer = get_field("pdf_viewer");
 $additional_image_carousel = get_field("additional_image_carousel");
 $postId = get_the_ID();
 $category = get_the_category($postId)[0];
+
+// Change to new carousel values
 $carousel_images = get_field( "custom_image_data" );
+// Collage Images
+$collage_images = get_field('collage_images_1_data');
+
 function reconstruct_array ($old_array) {
     $new_array = [];
     $index = 0;
@@ -138,7 +143,28 @@ endif;
     <div class="brucato-carousel">
         <?php echo $additional_image_carousel; ?>
     </div>
+    <?php
+if($collage_images) {
+?>
 
+    <div class="brucato-cascading-container">
+        <div class="brucato-shadowbox" id="brucato-shadowbox-display"></div>
+        <?php
+
+foreach($collage_images as $image) {
+?>
+        <div class="tile">
+            <div class="image-container">
+                <img src="<?php echo $image['src']; ?>" alt="" />
+            </div>
+        </div>
+        <?php
+}
+?>
+    </div>
+    <?php
+}
+?>
     <div class="brucato-post-navigation">
         <div class="previous">
             <?php
