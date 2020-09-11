@@ -254,7 +254,7 @@ let handleCarousel = () => {
 
 	carousels.forEach(carousel => {
 		let slides = [...carousel.querySelectorAll(".slide")];
-		if(slides.length >= 1) {
+		if (slides.length >= 1) {
 			const center = Math.floor(slides.length / 2);
 			const cap = slides.length - 1;
 			// Initialize the center
@@ -292,13 +292,15 @@ let handleCarousel = () => {
 				}
 				//   Slide Right
 				for (let i = center + 1; i <= cap; i++) {
-					slides[i].addEventListener("click", () => (slides = slideLeft(slides)));
+					slides[i].addEventListener(
+						"click",
+						() => (slides = slideLeft(slides))
+					);
 				}
 			};
 			addClickEvent(slides);
-		});
-
 		}
+	});
 };
 
 let handleCollage = () => {
