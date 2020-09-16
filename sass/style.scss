@@ -116,7 +116,17 @@ section {
 body {
 	font-family: questa-sans, sans-serif !important;
 	font-weight: 400;
-
+	&.single-post {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		header {
+			width: 100%;
+		}
+		& > section {
+			max-width: 150ch;
+		}
+	}
 	& * {
 		font-family: questa-sans, sans-serif;
 		font-weight: 400;

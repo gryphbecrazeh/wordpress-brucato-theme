@@ -87,6 +87,17 @@ body {
   font-family: questa-sans, sans-serif !important;
   font-weight: 400;
 }
+body.single-post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body.single-post header {
+  width: 100%;
+}
+body.single-post > section {
+  max-width: 150ch;
+}
 body * {
   font-family: questa-sans, sans-serif;
   font-weight: 400;
