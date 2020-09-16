@@ -49,7 +49,8 @@ nav {
 }
 nav .brucato-nav-button {
   position: absolute;
-  right: 0;
+  right: 1em;
+  top: 1em;
 }
 nav .brucato-sidebar {
   padding: 1em;
@@ -83,7 +84,6 @@ section a:active {
 }
 
 body {
-  padding: 1em;
   font-family: questa-sans, sans-serif !important;
   font-weight: 400;
 }
@@ -189,6 +189,10 @@ section.brucato-post .featured-image {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 60vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 section.brucato-post .brucato-carousel {
   width: 100%;
@@ -334,6 +338,10 @@ footer {
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 2em;
+}
+footer .footer-heading {
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

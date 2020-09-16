@@ -16,9 +16,13 @@ $postId = get_the_ID();
 $category = get_the_category($postId)[0];
 
 // Change to new carousel values
-$carousel_images = get_field( "custom_image_data" );
+$carousel_1_images = get_field( "carousel_images_1_data" );
+$carousel_2_images = get_field( "carousel_images_2_data" );
+$carousel_3_images = get_field( "carousel_images_3_data" );
+
 // Collage Images
 $collage_images = get_field('collage_images_1_data');
+
 
 function reconstruct_array ($old_array) {
     $new_array = [];
@@ -42,6 +46,18 @@ function get_category_last_post ($category_id) {
     $max_index = count($post_list) -1;
     return $post_list[$max_index];
 }
+function displayCarousel ($array) {
+    if(count($array>0)) {
+    ?>
+<div class="brucato-carousel carousel-container">
+    <?php foreach($array as $carousel_image) { ?>
+    <div class="slide"><img src="<?php echo $carousel_image["src"]?>" alt="" srcset=""></div>
+    <?php } ?>
+</div>
+<?php
+    }
+}
+
 // Get All Post categories
 $retrieved_category_list = get_categories( array(
     'orderby' => 'name',
@@ -79,6 +95,7 @@ $next_post = $post_list[$current_post_index + 1];
 
 <?php get_header(); ?>
 <section class="brucato-post">
+    <?php //Category Bread Crumbs Display                   BEGIN?>
     <div class="brucato-category-list">
         <span class="category"><?php echo $category->name; ?></span>
         <ol>
@@ -93,6 +110,8 @@ foreach ($post_list as $index=>$post) : setup_postdata($post);
             <?php endforeach; ?>
         </ol>
     </div>
+    <?php //Category Bread Crumbs Display                   END?>
+    <?php //POST HEADING                   BEGIN?>
     <div class="brucato-heading">
         <div class="brucato-title">
             <h1>
@@ -104,30 +123,21 @@ echo $active_post->post_title;?>
             <?php echo $post_description; ?>
         </div>
     </div>
-    <div class="featured-image">
-        <?php echo $post_featured_image; ?>
-    </div>
-    <div class="brucato-carousel carousel-container">
-        <?php 
-        if(count($carousel_images) > 0) {
-            ?>
+    <?php //POST HEADING                   END?>
+    <?php //HERO IMAGE                   BEGIN?>
+    <div class="featured-image" style="background-image:url('<?php echo $post_featured_image; ?>')">
 
-        <?php 
-                foreach($carousel_images as $carousel_image) {
-                    ?>
-        <div class="slide"><img src="<?php echo $carousel_image["src"]?>" alt="" srcset=""></div>
-        <?php
-                }
-            ?>
-
-        <?php
-        }
-    ?>
-        <?php //echo $image_carousel; ?>
     </div>
+    <?php //HERO IMAGE                   END?>
+    <?php //CAROUSEL 1                   BEGIN?>
+    <?php displayCarousel($carousel_1_images); ?>
+    <?php //CAROUSEL 1                   END?>
+    <?php //PDF VIEWER 1                   BEGIN?>
     <div class="brucato-pdf-viewer">
         <?php echo $pdf_viewer; ?>
     </div>
+    <?php //PDF VIEWER 1                   END?>
+    <?php //POST BODY 1                   BEGIN?>
     <div class="brucato-post-body">
         <?php
 
@@ -140,9 +150,14 @@ endif;
 
 ?>
     </div>
-    <div class="brucato-carousel">
-        <?php echo $additional_image_carousel; ?>
-    </div>
+    <?php //POST BODY 1                   END?>
+    <?php //CAROUSEL 2                   BEGIN?>
+    <?php displayCarousel($carousel_2_images); ?>
+    <?php //CAROUSEL 2                   END?>
+    <?php //CAROUSEL 3                   BEGIN?>
+    <?php displayCarousel($carousel_3_images); ?>
+    <?php //CAROUSEL 3                   END?>
+    <?php //COLLAGE 1                   BEGIN?>
     <?php
 if($collage_images) {
 ?>
@@ -165,6 +180,8 @@ foreach($collage_images as $image) {
     <?php
 }
 ?>
+    <?php //COLLAGE 1                   END?>
+    <?php //NAVIGATION                   BEGIN?>
     <div class="brucato-post-navigation">
         <div class="previous">
             <?php
@@ -193,6 +210,7 @@ foreach($collage_images as $image) {
         ?>
         </div>
     </div>
+    <?php //NAVIGATION                   END?>
 </section>
 
 
