@@ -49,10 +49,13 @@ function get_category_last_post ($category_id) {
 function displayCarousel ($array) {
     if(count($array>0)) {
     ?>
-<div class="brucato-carousel carousel-container">
-    <?php foreach($array as $carousel_image) { ?>
-    <div class="slide"><img src="<?php echo $carousel_image["src"]?>" alt="" srcset=""></div>
-    <?php } ?>
+<div class="brucato-carousel-container">
+    <div class="brucato-carousel carousel-container">
+        <?php foreach($array as $carousel_image) { ?>
+        <div class="slide"><img src="<?php echo $carousel_image["src"]?>" alt="" srcset=""></div>
+        <?php } ?>
+    </div>
+
 </div>
 <?php
     }

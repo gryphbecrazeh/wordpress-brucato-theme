@@ -252,54 +252,120 @@ let handleLinkStyles = () => {
 let handleCarousel = () => {
 	const carousels = [...document.querySelectorAll(".carousel-container")];
 
-	carousels.forEach(carousel => {
-		let slides = [...carousel.querySelectorAll(".slide")];
-		if (slides.length >= 1) {
-			const center = Math.floor(slides.length / 2);
-			const cap = slides.length - 1;
-			// Initialize the center
-			slides[center].classList.add("center");
+	let shadowbox = document.querySelector("#brucato-shadowbox-display");
 
-			let slideLeft = slides => {
-				slides[0].classList.add("transition");
-				slides[center].classList.remove("center");
-				carousel.removeChild(slides[0]);
-				slides[0].classList.remove("transition");
-				carousel.appendChild(slides[0]);
-				slides = [...carousel.querySelectorAll(".slide")];
-				slides[center].classList.add("center");
-				addClickEvent(slides);
-			};
-			let slideRight = slides => {
-				slides[cap].classList.add("transition");
-				slides[center].classList.remove("center");
-				carousel.removeChild(slides[cap]);
-				slides[cap].classList.remove("transition");
-				carousel.prepend(slides[cap]);
-				slides = [...carousel.querySelectorAll(".slide")];
-				slides[center].classList.add("center");
-				addClickEvent(slides);
-			};
+	let shadowboxImage = document.createElement("img");
+	shadowboxImage.classList.add("shadowbox-image");
 
-			// add onClick
-			let addClickEvent = slides => {
-				//   Slide Left
-				for (let i = 0; i < center; i++) {
-					slides[i].addEventListener(
-						"click",
-						() => (slides = slideRight(slides))
-					);
-				}
-				//   Slide Right
-				for (let i = center + 1; i <= cap; i++) {
-					slides[i].addEventListener(
-						"click",
-						() => (slides = slideLeft(slides))
-					);
-				}
-			};
-			addClickEvent(slides);
+	let closeShadowbox = () => {
+		shadowbox.removeChild(shadowboxImage);
+		shadowbox.classList.remove("open");
+	};
+
+	let openShadowbox = e => {
+		// let image = e.target.getAttribute("src")
+		let image = e.target.querySelector("img").getAttribute("src");
+		console.log(image);
+		let shadowboxOpened =
+			[...shadowbox.classList].indexOf("open") > -1 ? true : false;
+		console.log(shadowboxOpened);
+		if (image && !shadowboxOpened) {
+			shadowboxImage.setAttribute("src", image);
+			shadowbox.appendChild(shadowboxImage);
+			shadowbox.classList.add("open");
+			shadowbox.addEventListener("click", closeShadowbox);
 		}
+	};
+
+	carousels.forEach(carousel => {
+		//     Begin For Loop
+		let slides = [...carousel.querySelectorAll(".slide")];
+		if (slides.length < 1) return 0;
+
+		const center = Math.floor(slides.length / 2);
+		const cap = slides.length - 1;
+		// Initialize the center
+		slides[center].classList.add("center");
+		slides[center + 1].classList.add("right");
+		slides[center - 1].classList.add("left");
+
+		/**
+			let slideLeft = () => {
+		  slides[cap].classList.remove("transition")
+		  slides[0].classList.add("transition")
+		  slides[center].classList.remove("center")
+		  slides[0].classList.remove("transition")
+		  carousel.appendChild(slides[0])
+		  //     Update the slides array
+		  slides=[...carousel.querySelectorAll(".slide")]
+		  slides[center].classList.add("center")
+		  slides[cap].classList.add("transition")
+		}
+		let slideRight = () => {
+		  slides[cap].classList.remove("transition")      
+		  slides[cap].classList.add("transition")
+		  slides[center].classList.remove("center")
+		  carousel.removeChild(slides[cap])
+		  slides[cap].classList.remove("transition")
+		  carousel.prepend(slides[cap])
+		  slides=[...carousel.querySelectorAll(".slide")]
+		  slides[center].classList.add("center")
+		  slides[cap].classList.add("transition")
+		}
+	
+		*/
+
+		let slideLeft = () => {
+			carousel.removeChild(slides[0]);
+			carousel.appendChild(slides[0]);
+
+			slides[center + 1].classList.remove("right");
+			slides[center + 1].classList.add("center");
+			slides[center - 1].classList.remove("left");
+			slides[center].classList.remove("center");
+
+			slides = [...carousel.querySelectorAll(".slide")];
+
+			slides[center].classList.add("center");
+			slides[center + 1].classList.add("right");
+			slides[center - 1].classList.add("left");
+		};
+
+		let slideRight = () => {
+			carousel.removeChild(slides[cap]);
+			carousel.prepend(slides[cap]);
+
+			slides[center + 1].classList.remove("right");
+			slides[center - 1].classList.remove("left");
+			slides[center].classList.remove("center");
+
+			slides = [...carousel.querySelectorAll(".slide")];
+
+			slides[center + 1].classList.add("right");
+			slides[center - 1].classList.add("left");
+			slides[center].classList.add("center");
+		};
+
+		let handleSlide = e => {
+			let index = slides.indexOf(e.target);
+			if (index < 0) {
+				alert("Error");
+				return 0;
+			}
+			switch (true) {
+				case index < center:
+					slideLeft();
+					break;
+				case index > center:
+					slideRight();
+					break;
+				default:
+					openShadowbox(e);
+			}
+		};
+
+		slides.forEach(slide => slide.addEventListener("click", handleSlide));
+		// End For Loop
 	});
 };
 
