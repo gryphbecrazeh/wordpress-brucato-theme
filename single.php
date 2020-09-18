@@ -52,7 +52,8 @@ function displayCarousel ($array) {
 <div class="brucato-carousel-container">
     <div class="brucato-carousel carousel-container">
         <?php foreach($array as $carousel_image) { ?>
-        <div class="slide"><img src="<?php echo $carousel_image["src"]?>" alt="" srcset=""></div>
+        <div class="slide"><img src="<?php echo $carousel_image["src"]?>" alt="" srcset="" width="300" height="300" />
+        </div>
         <?php } ?>
     </div>
 

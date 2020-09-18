@@ -268,9 +268,26 @@ section.brucato-post {
 		padding: 2em;
 		height: auto;
 		display: flex;
+		flex-wrap: wrap-reverse;
 		flex-direction: row;
-		justify-content: space-between;
+		justify-content: space-evenly;
 		align-items: center;
+		font-size: 2.5em;
+		gap: 1em 2em;
+		div {
+			border: 5px solid $green;
+			border-radius: 10px;
+			padding: 0.1em 0.5em;
+			box-shadow: 0 5px 5px #aaa;
+			text-align: center;
+			max-width: 13em;
+			transition: all 100ms ease-in-out;
+			flex-grow: 1;
+			flex-basis: calc(800px - 100%);
+			&:hover {
+				box-shadow: 0 2px 2px #aaa;
+			}
+		}
 		a {
 			color: $green;
 			text-decoration: none;
