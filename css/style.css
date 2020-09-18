@@ -246,39 +246,6 @@ section.brucato-post .brucato-post-navigation a {
   align-items: center;
 }
 
-.brucato-shadowbox {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: fixed;
-  z-index: 9999999;
-  background-color: rgba(30, 30, 30, 0.9);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 250ms ease-in-out;
-}
-.brucato-shadowbox.open {
-  opacity: 1;
-  pointer-events: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-.brucato-shadowbox.open .shadowbox-image {
-  max-width: 80vw;
-  width: 70%;
-  height: auto;
-  box-shadow: 0px 5px 10px black;
-  animation-name: slide-in-from-right;
-  animation-duration: 250ms;
-  animation-delay: 100ms;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-  animation-direction: normal;
-}
-
 .carousel-container {
   max-width: 50em;
   justify-content: center;
@@ -355,7 +322,8 @@ section.brucato-post .brucato-post-navigation a {
 .brucato-cascading-container .tile.bottom img {
   margin-bottom: -60px;
 }
-.brucato-cascading-container .brucato-shadowbox {
+
+.brucato-shadowbox {
   top: 0;
   left: 0;
   right: 0;
@@ -367,7 +335,7 @@ section.brucato-post .brucato-post-navigation a {
   pointer-events: none;
   transition: opacity 250ms ease-in-out;
 }
-.brucato-cascading-container .brucato-shadowbox.open {
+.brucato-shadowbox.open {
   opacity: 1;
   pointer-events: auto;
   display: flex;
@@ -375,7 +343,7 @@ section.brucato-post .brucato-post-navigation a {
   align-items: center;
   overflow: hidden;
 }
-.brucato-cascading-container .brucato-shadowbox.open .shadowbox-image {
+.brucato-shadowbox.open .shadowbox-image {
   margin-right: -3000px;
   max-height: 80vh;
   max-width: 80vh;

@@ -284,39 +284,6 @@ section.brucato-post {
 	justify-content: center;
 	align-items: center;
 }
-.brucato-shadowbox {
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	position: fixed;
-	z-index: 9999999;
-	background-color: rgba(30, 30, 30, 0.9);
-	opacity: 0;
-	pointer-events: none;
-	transition: opacity 250ms ease-in-out;
-	&.open {
-		opacity: 1;
-		pointer-events: auto;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		overflow: hidden;
-		.shadowbox-image {
-			// margin-right:$image_animation_start;
-			max-width: 80vw;
-			width: 70%;
-			height: auto;
-			box-shadow: 0px 5px 10px black;
-			animation-name: slide-in-from-right;
-			animation-duration: 250ms;
-			animation-delay: 100ms;
-			animation-fill-mode: forwards;
-			animation-timing-function: ease-in-out;
-			animation-direction: normal;
-		}
-	}
-}
 
 .carousel-container {
 	max-width: 50em;
@@ -364,38 +331,6 @@ section.brucato-post {
 	}
 }
 
-// Image Carousel
-// .carousel-container {
-// 	width: 100%;
-// 	justify-content: space-evenly;
-// 	overflow: hidden;
-// 	display: flex;
-// 	align-items: center;
-// 	gap: 2em;
-// 	.slide {
-// 		text-align: center;
-// 		display: flex;
-// 		justify-content: center;
-// 		align-items: center;
-// 		width: 200px;
-// 		height: 200px;
-// 		transition: all 500ms ease-in-out;
-// 		img {
-// 			height: auto;
-// 			width: 100%;
-// 		}
-// 		&.center {
-// 			transition: all 200ms ease-in-out;
-// 			height: 250px;
-// 			width: 250px;
-// 		}
-// 		&.transition {
-// 			transition: all 200ms ease-in-out;
-// 			width: 0px;
-// 		}
-// 	}
-// }
-
 .brucato-cascading-container {
 	display: flex;
 	flex-wrap: wrap;
@@ -431,46 +366,45 @@ section.brucato-post {
 			margin-bottom: $image_offset;
 		}
 	}
-	.brucato-shadowbox {
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		position: fixed;
-		z-index: 9999999;
-		background-color: rgba(30, 30, 30, 0.9);
-		opacity: 0;
-		pointer-events: none;
-		transition: opacity 250ms ease-in-out;
+}
+.brucato-shadowbox {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	position: fixed;
+	z-index: 9999999;
+	background-color: rgba(30, 30, 30, 0.9);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 250ms ease-in-out;
 
-		&.open {
-			opacity: 1;
-			pointer-events: auto;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			overflow: hidden;
-			.shadowbox-image {
-				margin-right: $image_animation_start;
-				// max-width: 80vw;
-				// width: 70%;
-				// height: auto;
-				max-height: 80vh;
-				max-width: 80vh;
-				width: auto;
+	&.open {
+		opacity: 1;
+		pointer-events: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+		.shadowbox-image {
+			margin-right: $image_animation_start;
+			// max-width: 80vw;
+			// width: 70%;
+			// height: auto;
+			max-height: 80vh;
+			max-width: 80vh;
+			width: auto;
 
-				box-shadow: 0px 5px 10px black;
-				animation-name: slide-in-from-right;
-				animation-duration: 250ms;
-				animation-delay: 100ms;
-				animation-fill-mode: forwards;
-				animation-timing-function: ease-in-out;
-				animation-direction: normal;
-			}
+			box-shadow: 0px 5px 10px black;
+			animation-name: slide-in-from-right;
+			animation-duration: 250ms;
+			animation-delay: 100ms;
+			animation-fill-mode: forwards;
+			animation-timing-function: ease-in-out;
+			animation-direction: normal;
 		}
 	}
 }
-
 @keyframes slide-in-from-right {
 	from {
 		margin-right: $image_animation_start;
