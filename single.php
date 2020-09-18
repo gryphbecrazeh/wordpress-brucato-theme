@@ -132,9 +132,14 @@ echo $active_post->post_title;?>
     </div>
     <?php //POST HEADING                   END?>
     <?php //HERO IMAGE                   BEGIN?>
-    <div class="featured-image" style="background-image:url('<?php echo $post_featured_image; ?>')">
+    <?php 
+    if($post_featured_image) {
+        ?>
+    <div class="featured-image" style="background-image:url('<?php echo $post_featured_image; ?>')"></div>
 
-    </div>
+    <?php
+    }
+    ?>
     <?php //HERO IMAGE                   END?>
     <?php //CAROUSEL 1                   BEGIN?>
     <?php displayCarousel($carousel_1_images); ?>

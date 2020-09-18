@@ -175,6 +175,8 @@ section.main .nav-menu .brucato-navigation.closed .view {
 section.brucato-post {
   min-height: 100vh;
   padding: 1em;
+  display: flex;
+  flex-direction: column;
 }
 section.brucato-post .brucato-category-list {
   color: #e1f391;
@@ -228,6 +230,7 @@ section.brucato-post .brucato-post-body {
   align-items: center;
 }
 section.brucato-post .brucato-post-navigation {
+  margin-top: auto;
   padding: 2em;
   height: auto;
   display: flex;

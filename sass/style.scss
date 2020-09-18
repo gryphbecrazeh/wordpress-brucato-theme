@@ -211,6 +211,8 @@ section.main {
 section.brucato-post {
 	min-height: 100vh;
 	padding: 1em;
+	display: flex;
+	flex-direction: column;
 	.brucato-category-list {
 		color: $green;
 		ol,
@@ -265,6 +267,7 @@ section.brucato-post {
 		align-items: center;
 	}
 	.brucato-post-navigation {
+		margin-top: auto;
 		padding: 2em;
 		height: auto;
 		display: flex;
