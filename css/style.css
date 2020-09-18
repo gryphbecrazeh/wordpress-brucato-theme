@@ -377,9 +377,9 @@ section.brucato-post .brucato-post-navigation a {
 }
 .brucato-cascading-container .brucato-shadowbox.open .shadowbox-image {
   margin-right: -3000px;
-  max-width: 80vw;
-  width: 70%;
-  height: auto;
+  max-height: 80vh;
+  max-width: 80vh;
+  width: auto;
   box-shadow: 0px 5px 10px black;
   animation-name: slide-in-from-right;
   animation-duration: 250ms;
