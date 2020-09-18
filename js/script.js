@@ -252,7 +252,14 @@ let handleLinkStyles = () => {
 let handleCarousel = () => {
 	const carousels = [...document.querySelectorAll(".carousel-container")];
 
-	let shadowbox = document.querySelector("#brucato-shadowbox-display");
+	const shadowbox = document.querySelector("#brucato-shadowbox-display");
+
+	if (!shadowbox) {
+		shadowbox = document.createElement("div");
+		shadowbox.classList.add("brucato-shadowbox");
+		shadowbox.id = "brucato-shadowbox-display";
+		document.body.appendChild(shadowbox);
+	}
 
 	let shadowboxImage = document.createElement("img");
 	shadowboxImage.classList.add("shadowbox-image");
@@ -263,12 +270,9 @@ let handleCarousel = () => {
 	};
 
 	let openShadowbox = e => {
-		// let image = e.target.getAttribute("src")
 		let image = e.target.querySelector("img").getAttribute("src");
-		console.log(image);
 		let shadowboxOpened =
 			[...shadowbox.classList].indexOf("open") > -1 ? true : false;
-		console.log(shadowboxOpened);
 		if (image && !shadowboxOpened) {
 			shadowboxImage.setAttribute("src", image);
 			shadowbox.appendChild(shadowboxImage);

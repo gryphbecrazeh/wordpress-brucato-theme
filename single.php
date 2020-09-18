@@ -98,6 +98,9 @@ $next_post = $post_list[$current_post_index + 1];
 
 <?php get_header(); ?>
 <section class="brucato-post">
+    <?php //Brucato Shadowbox                   BEGIN?>
+
+    <div class="brucato-shadowbox" id="brucato-shadowbox-display"></div>
     <?php //Category Bread Crumbs Display                   BEGIN?>
     <div class="brucato-category-list">
         <span class="category"><?php echo $category->name; ?></span>
