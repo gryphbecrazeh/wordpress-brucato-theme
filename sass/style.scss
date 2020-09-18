@@ -125,6 +125,7 @@ body {
 		}
 		& > section {
 			max-width: 150ch;
+			width: 100%;
 		}
 	}
 	& * {
@@ -411,7 +412,7 @@ section.brucato-post {
 		position: relative;
 		// border:2px solid red;
 		.image-container img {
-			max-width: 20vw !important;
+			max-width: 20vw !important; // Probably a problem
 			height: auto;
 			cursor: pointer;
 		}

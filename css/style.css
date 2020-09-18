@@ -97,6 +97,7 @@ body.single-post header {
 }
 body.single-post > section {
   max-width: 150ch;
+  width: 100%;
 }
 body * {
   font-family: questa-sans, sans-serif;
