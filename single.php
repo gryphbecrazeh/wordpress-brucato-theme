@@ -190,32 +190,29 @@ foreach($collage_images as $image) {
     <?php //COLLAGE 1                   END?>
     <?php //NAVIGATION                   BEGIN?>
     <div class="brucato-post-navigation">
-        <div class="previous">
-            <?php
+        <?php
           if($previous_post) {
             ?>
-            <a href="<?php echo get_the_permalink($previous_post); ?>">Prev</a>
-            <?php
+        <a class="previous" href="<?php echo get_the_permalink($previous_post); ?>">Prev</a>
+        <?php
           } else {
               ?>
-            <a href="<?php echo get_permalink($previous_category_post); ?>"><?php echo $previous_category->name ?></a>
-            <?php
+        <a class="previous"
+            href="<?php echo get_permalink($previous_category_post); ?>"><?php echo $previous_category->name ?></a>
+        <?php
           }
         ?>
-        </div>
-        <div class="next">
-            <?php
+        <?php
           if($next_post) {
             ?>
-            <a href="<?php echo get_the_permalink($next_post); ?>">Next</a>
-            <?php
+        <a class="next" href="<?php echo get_the_permalink($next_post); ?>">Next</a>
+        <?php
           } else {
               ?>
-            <a href="<?php echo get_category_link($next_category); ?>"><?php echo $next_category->name ?></a>
-            <?php
+        <a class="next" href="<?php echo get_category_link($next_category); ?>"><?php echo $next_category->name ?></a>
+        <?php
           }
         ?>
-        </div>
     </div>
     <?php //NAVIGATION                   END?>
 </section>

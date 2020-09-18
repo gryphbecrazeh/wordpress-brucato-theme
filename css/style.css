@@ -238,7 +238,10 @@ section.brucato-post .brucato-post-navigation {
   font-size: 2.5em;
   gap: 1em 2em;
 }
-section.brucato-post .brucato-post-navigation div {
+section.brucato-post .brucato-post-navigation a {
+  color: #e1f391;
+  display: block;
+  text-decoration: none;
   border: 5px solid #e1f391;
   border-radius: 10px;
   padding: 0.1em 0.5em;
@@ -249,12 +252,8 @@ section.brucato-post .brucato-post-navigation div {
   flex-grow: 1;
   flex-basis: calc(800px - 100%);
 }
-section.brucato-post .brucato-post-navigation div:hover {
+section.brucato-post .brucato-post-navigation a:hover {
   box-shadow: 0 2px 2px #aaa;
-}
-section.brucato-post .brucato-post-navigation a {
-  color: #e1f391;
-  text-decoration: none;
 }
 
 .brucato-carousel-container {
