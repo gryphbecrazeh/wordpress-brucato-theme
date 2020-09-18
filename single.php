@@ -47,7 +47,7 @@ function get_category_last_post ($category_id) {
     return $post_list[$max_index];
 }
 function displayCarousel ($array) {
-    if(count($array>0)) {
+    if(count($array)>0) {
     ?>
 <div class="brucato-carousel-container">
     <div class="brucato-carousel carousel-container">
