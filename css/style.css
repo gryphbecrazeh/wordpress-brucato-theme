@@ -311,7 +311,7 @@ section.brucato-post .brucato-post-navigation a:hover {
 .brucato-cascading-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 3em;
   justify-content: center;
   align-items: center;
   padding: 100px;
@@ -323,7 +323,7 @@ section.brucato-post .brucato-post-navigation a:hover {
   position: relative;
 }
 .brucato-cascading-container .tile .image-container img {
-  max-width: 20vw !important;
+  max-width: 30em;
   height: auto;
   cursor: pointer;
 }
